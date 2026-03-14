@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Student Dashboard | EcoQuest</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body onload="loadStudentDashboard()">
+
+<nav>
+    <h2>EcoQuest Student</h2>
+    <div style="display: flex; gap: 15px; align-items: center;">
+        <span>Level: <b id="userLevel">1</b> | Points: <b id="userPoints">0</b></span>
+        <button class="secondary" onclick="logout()" style="margin:0; padding: 5px 15px;">Logout</button>
+    </div>
+</nav>
+
+<div class="container dashboard-layout">
+    <div class="sidebar">
+        <h3>Learning Topics</h3>
+        <p style="font-size: 0.85rem; color: #666;">Select a topic to start a 5-question challenge.</p>
+        <div id="categoryList">
+            </div>
+    </div>
+
+    <div class="main-content">
+        <div id="welcomeScreen" class="card" style="text-align: center; padding: 50px 20px;">
+            <h2>Welcome, <span id="userName">Student</span>!</h2>
+            <p>Select a topic from the sidebar to begin your gamified learning session.</p>
+        </div>
+
+        <div id="quizScreen" class="card hidden quiz-container">
+            <div class="quiz-header">
+                <span id="qTopic">Topic Name</span>
+                <span id="qCount">Question 1 of 5</span>
+            </div>
+            <div class="progress-bar-bg">
+                <div class="progress-bar-fill" id="quizProgress"></div>
+            </div>
+            
+            <h2 id="quizQuestionText" style="margin-bottom: 30px;">Loading...</h2>
+            
+            <div id="quizOptions" style="display: flex; flex-direction: column;">
+                </div>
+        </div>
+
+        <div id="quizCompleteScreen" class="card hidden" style="text-align: center; padding: 40px;">
+            <h2 style="color: var(--primary);">Challenge Complete! 🎉</h2>
+            <h3 id="finalScoreText">You scored X points!</h3>
+            <button onclick="location.reload()" style="width: 250px;">Choose Another Topic</button>
+        </div>
+    </div>
+</div>
+
+<script src="app.js"></script>
+</body>
+</html>

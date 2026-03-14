@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Student Dashboard | EcoQuest</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body onload="loadStudentDashboard()">
+
+<nav>
+    <h2>EcoQuest Platform</h2>
+    <div style="display: flex; gap: 15px; align-items: center;">
+        <span>Level <b id="userLevel">1</b> | Points: <b id="userPoints">0</b></span>
+        <button class="secondary" onclick="logout()" style="margin:0;">Logout</button>
+    </div>
+</nav>
+
+<div class="container">
+    <div class="card">
+        <h3>Student Profile: <span id="userName">Student</span></h3>
+        <div id="badgeContainer" style="margin-top: 10px;"></div>
+    </div>
+
+    <div class="grid-2">
+        <div class="card" id="quizArea">
+            <div style="display: flex; justify-content: space-between; margin-bottom: 10px; font-size: 0.9rem; font-weight: bold; color: var(--primary);">
+                <span id="quizTopic">Topic</span>
+                <span id="quizDifficulty">Difficulty</span>
+            </div>
+            <h3>Adaptive Knowledge Check</h3>
+            <hr>
+            <h4 id="quizQuestion">Loading next module...</h4>
+            <div id="quizOptions"></div>
+            <p id="quizResult" style="font-weight: bold; margin-top: 10px;"></p>
+        </div>
+
+        <div class="card">
+            <h3>Practical Eco-Mission</h3>
+            <p><b>Current Assignment:</b> Conduct a home energy audit. Identify and unplug three electronic devices that draw phantom power when not in use.</p>
+            <div class="form-group">
+                <label>Upload Photographic Evidence</label>
+                <input type="file" id="missionUpload" accept="image/*">
+            </div>
+            <button onclick="submitMission()" style="background-color: var(--accent);">Submit Assignment</button>
+        </div>
+    </div>
+
+    <div class="card">
+        <h3>Class Leaderboard</h3>
+        <table>
+            <thead><tr><th>Rank</th><th>Student Name</th><th>Level</th><th>Total Points</th></tr></thead>
+            <tbody id="leaderboardBody"></tbody>
+        </table>
+    </div>
+</div>
+
+<script src="app.js"></script>
+</body>
+</html>

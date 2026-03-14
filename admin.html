@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Admin Dashboard | EcoQuest</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body onload="loadAdminDashboard()">
+
+<nav style="background-color: var(--dark);">
+    <h2>EcoQuest Admin Hub</h2>
+    <div style="display: flex; gap: 15px; align-items: center;">
+        <span>Admin: <b id="adminName">Admin</b></span>
+        <button class="secondary" onclick="logout()" style="margin:0; padding: 5px 15px;">Logout</button>
+    </div>
+</nav>
+
+<div class="container">
+    <div class="grid-2" style="margin-bottom: 20px;">
+        <div class="card" style="text-align: center; border-left: 5px solid var(--primary);">
+            <h3>Total Registered Students</h3>
+            <h1 id="statTotalStudents" style="margin:0;">0</h1>
+        </div>
+        <div class="card" style="text-align: center; border-left: 5px solid var(--accent);">
+            <h3>Active Questions in Bank</h3>
+            <h1 id="statTotalQuestions" style="margin:0;">0</h1>
+        </div>
+    </div>
+
+    <div class="card" style="background: #f4f1de;">
+        <h3>➕ Add New Quiz Question</h3>
+        <p>Categories entered here will automatically appear on the Student Sidebar.</p>
+        <form onsubmit="addNewQuestion(event)" class="grid-2">
+            <div class="form-group">
+                <label>Category (e.g., Water Conservation)</label>
+                <input type="text" id="addQCategory" required>
+            </div>
+            <div class="form-group">
+                <label>Question Text</label>
+                <input type="text" id="addQText" required>
+            </div>
+            <div class="form-group"><label>Option 1</label><input type="text" id="addQOpt1" required></div>
+            <div class="form-group"><label>Option 2</label><input type="text" id="addQOpt2" required></div>
+            <div class="form-group"><label>Option 3</label><input type="text" id="addQOpt3" required></div>
+            <div class="form-group"><label>Option 4</label><input type="text" id="addQOpt4" required></div>
+            <div class="form-group">
+                <label>Correct Answer</label>
+                <select id="addQAns" required>
+                    <option value="0">Option 1</option><option value="1">Option 2</option>
+                    <option value="2">Option 3</option><option value="3">Option 4</option>
+                </select>
+            </div>
+            <div style="display: flex; align-items: flex-end;">
+                <button type="submit" style="margin-bottom: 15px;">Save Question</button>
+            </div>
+        </form>
+    </div>
+
+    <div class="grid-2">
+        <div class="card" style="overflow-x: auto;">
+            <h3>User Directory</h3>
+            <table>
+                <thead><tr><th>Name</th><th>Role</th><th>School</th><th>Points</th></tr></thead>
+                <tbody id="adminUserTable"></tbody>
+            </table>
+        </div>
+
+        <div class="card" style="overflow-x: auto;">
+            <h3>Question Database</h3>
+            <table>
+                <thead><tr><th>Category</th><th>Question</th><th>Action</th></tr></thead>
+                <tbody id="adminQuestionTable"></tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+<script src="app.js"></script>
+</body>
+</html>

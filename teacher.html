@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Educator Analytics | EcoQuest</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body onload="loadTeacherDashboard()">
+
+<nav style="background-color: #2b2d42;">
+    <h2>EcoQuest Educator Portal</h2>
+    <div style="display: flex; gap: 15px; align-items: center;">
+        <span>Instructor: <b id="teacherName">Teacher</b></span>
+        <button class="secondary" onclick="logout()" style="margin:0; background: #8d99ae;">Logout</button>
+    </div>
+</nav>
+
+<div class="container">
+    <div class="grid-3">
+        <div class="card text-center">
+            <h3>Enrolled Students</h3>
+            <h1 id="statTotal" style="margin: 0; color: var(--dark);">0</h1>
+        </div>
+        <div class="card text-center">
+            <h3>Average Points</h3>
+            <h1 id="statAvg" style="margin: 0; color: var(--primary);">0</h1>
+        </div>
+        <div class="card text-center">
+            <h3>Missions Submitted</h3>
+            <h1 id="statMissions" style="margin: 0; color: var(--accent);">0</h1>
+        </div>
+    </div>
+
+    <div class="card">
+        <h3>Student Performance Tracking</h3>
+        <p>Monitor real-time adaptive learning metrics and gamification progress.</p>
+        <table>
+            <thead>
+                <tr>
+                    <th>Student Name</th>
+                    <th>Current Level</th>
+                    <th>Engagement Progress</th>
+                    <th>Current Adaptive Tier</th>
+                </tr>
+            </thead>
+            <tbody id="studentProgressBody">
+                </tbody>
+        </table>
+    </div>
+</div>
+
+<script src="app.js"></script>
+</body>
+</html>
